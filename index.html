@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Solver</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>20 Solver</h1>
+        <form action="/solve" method="POST">
+            <label for="num1">Angka 1:</label>
+            <input type="number" name="num1" min="1" max="10" required><br>
+            <label for="num2">Angka 2:</label>
+            <input type="number" name="num2" min="1" max="10" required><br>
+            <label for="num3">Angka 3:</label>
+            <input type="number" name="num3" min="1" max="10" required><br>
+            <label for="num4">Angka 4:</label>
+            <input type="number" name="num4" min="1" max="10" required><br>
+            <button type="submit">Cari Solusi</button>
+        </form>
+
+        {% if solutions %}
+            <h2>Solusi yang ditemukan:</h2>
+            <ul>
+                {% for solution in solutions %}
+                    <li>{{ solution }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
